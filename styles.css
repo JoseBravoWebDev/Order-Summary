@@ -1,0 +1,254 @@
+/* General Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+   line-height: 1;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+/* End General Reset */
+
+/* General Settings */
+
+:root {
+   /* Primary Colors */
+   --primary: hsl(225, 100%, 94%);
+   --secondary: hsl(245, 75%, 52%);
+
+   /* Neutral Colors */
+   --neutral-1: hsl(225, 100%, 98%);
+   --neutral-2: hsl(224, 23%, 55%);
+   --neutral-3: hsl(223, 47%, 23%);
+   --neutral-4: hsl(0, 0%, 100%);
+
+   /* Fonts Family */
+   --ff-body: 'Red Hat Display';
+
+   /* Fonts Weight */
+   --fw-regular: 500;
+   --fw-bold: 700;
+   --fw-extra-bold: 900;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+/* End General Settings */
+
+/* General Styling */
+
+body {
+  background: 
+    url('images/pattern-background-mobile.svg'),
+    var(--primary);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  color: var(--neutral-2);
+  font-size: 1rem;
+
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+
+/* End General Styling */
+
+/* Utilities */
+
+.flex-group {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+}
+
+/* End Utilities */
+
+/* Section Style */
+
+.order-summary-card {
+  --gap: 1.5rem;
+  --padding: 1.5rem;
+  --padding-descr: 0 1rem;
+
+  max-width: 400px;
+  background: var(--neutral-4);
+  text-align: center;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.summary-content {
+  display: grid;
+  gap: var(--gap);
+  padding: var(--padding);
+}
+
+.title {
+  margin-top: 1rem;
+  color: var(--neutral-3);
+  font-weight: var(--fw-extra-bold);
+}
+
+.description {
+  padding: var(--padding-descr);
+}
+
+.price {
+  background: var(--neutral-1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.product-content {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.product-cover {
+  width: 55px;
+  height: 55px;
+}
+
+.price-container p {
+  line-height: 1.5;
+}
+
+.price-container p:first-child {
+  color: var(--neutral-3);
+  font-weight: var(--fw-extra-bold);
+}
+
+.price a {
+  color: var(--secondary);
+  font-weight: var(--fw-extra-bold);
+}
+
+.price a:is(:hover, :focus) {
+  color: var(--neutral-2);
+}
+
+.buy-button {
+  cursor: pointer;
+  padding: 0.75rem 0;
+  border-radius: 0.75rem;
+  border: none;
+  background: var(--secondary);
+  color: var(--neutral-4);
+  font-weight: var(--fw-bold);
+
+  box-shadow: 0px 15px 20px 2px hsla(245, 75%, 52%, 0.25);
+
+}
+
+.buy-button:is(:hover, :focus) {
+  background: var(--neutral-2);
+}
+
+.cancel-button {
+  margin-top: -5px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--neutral-2);
+  font-weight: var(--fw-extra-bold);
+}
+
+.cancel-button:is(:hover, :focus) {
+  color: var(--neutral-3);
+}
+
+@media (min-width: 400px) {
+  
+  body {
+    background: 
+      url('images/pattern-background-desktop.svg'),
+      var(--primary);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .order-summary-card {
+    --gap: 1rem;
+    --padding: 2rem;
+  }
+
+  .buy-button {
+    margin-top: 1rem;
+  }
+
+  .cancel-button {
+    margin-top: 0;
+  }
+}
+
+/* End Section Style */
+
+/* Attribution Style */
+
+.attribution { 
+  font-size: 11px;
+  text-align: center; 
+}
+
+.attribution a { 
+  color: hsl(228, 45%, 44%); 
+}
+
+/* End Attribution Style */
